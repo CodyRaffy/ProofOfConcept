@@ -1,0 +1,4 @@
+# Web workbench (sass)
+.sass-cache/
+
+node_modules/
