@@ -1,0 +1,42 @@
+$tic-tac-toe-border: 2px solid black;
+
+td {
+    width: 200px;
+    height: 200px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.top-left {
+    border-bottom: $tic-tac-toe-border;
+    border-right: $tic-tac-toe-border;
+}
+.top-middle {
+    border-bottom: $tic-tac-toe-border;
+}
+.top-right {
+    border-bottom: $tic-tac-toe-border;
+    border-left: $tic-tac-toe-border;
+}
+
+.middle-left {
+    border-right: $tic-tac-toe-border;
+}
+.middle-middle {
+
+}
+.middle-right {
+    border-left: $tic-tac-toe-border;
+}
+
+.bottom-left {
+    border-top: $tic-tac-toe-border;
+    border-right: $tic-tac-toe-border;
+}
+.bottom-middle {
+    border-top: $tic-tac-toe-border;
+}
+.bottom-right {
+    border-top: $tic-tac-toe-border;
+    border-left: $tic-tac-toe-border;
+}
