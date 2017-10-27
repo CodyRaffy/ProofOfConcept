@@ -1,0 +1,5 @@
+-Separate css in production build
+-Add React and Redux
+-Hook up hot module reloading
+-Develop gameplay
+-Deploy to website, ios and andriod
