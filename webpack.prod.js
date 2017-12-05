@@ -9,11 +9,6 @@ const extractSass = new ExtractTextPlugin({
   });
 
 module.exports = merge(common, {
-  entry: './src/js/index.js',
-  output: {
-    path: __dirname + '/dest',
-    filename: "bundle.js"
-  },
   module: {
     loaders: [
         { test: /\.scss$/,

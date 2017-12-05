@@ -1,4 +1,4 @@
--Separate css in production build
+-Separate css in production build (done - but still need to reference the created css file in production)
 -Add React and Redux
 -Hook up hot module reloading
 -Develop gameplay
