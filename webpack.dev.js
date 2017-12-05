@@ -4,7 +4,7 @@ const common = require('./webpack.common.js');
 module.exports = merge(common, {
    devtool: 'inline-source-map',
    module: {
-    loaders: [
+    rules: [
         { 
             test: /\.scss$/, loader: "style-loader!css-loader!sass-loader"
         }

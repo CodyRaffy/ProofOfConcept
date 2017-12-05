@@ -1,5 +1,7 @@
 import * as React from "react";
 
+require("./board.scss");
+
 export interface BoardProps { }
 
 // 'HelloProps' describes the shape of props.
