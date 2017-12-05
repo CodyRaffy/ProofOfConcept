@@ -1,9 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import { Board } from "./src/components/board/Board";
+import { Game } from "./src/components/game/Game";
 
 ReactDOM.render(
-    <Board />,
+    <Game />,
     document.getElementById("app")
 );

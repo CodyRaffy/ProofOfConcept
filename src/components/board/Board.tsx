@@ -2,12 +2,13 @@ import * as React from "react";
 
 require("./board.scss");
 
-export interface BoardProps { }
+export interface BoardProps { moves: Array<boolean>}
 
-// 'HelloProps' describes the shape of props.
+// 'BoardProps' describes the shape of props.
 // State is never set so we use the '{}' type.
 export class Board extends React.Component<BoardProps, {}> {
-    render() {
+    
+    render() : JSX.Element {
         return (
             <table>
             <tbody>
