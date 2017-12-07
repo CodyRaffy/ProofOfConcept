@@ -1,28 +1,21 @@
-import { ActionTypes } from "../actions/ActionTypes";
+import { GameActionTypes } from "../actions/game/GameActionTypes";
 import { ActionTypeKeys } from "../actions/ActionTypeKeys";
-import { State } from "../state/State";
+import { IGame } from "../state/Game";
+var cuid = require('cuid');
 
-const defaultState : State = {
-    players: [ 
-        {
-            id: "1",
-            firstName: "Cody",
-            lastName: "Raffy"
-        },
-        {
-            id: "2",
-            firstName: "Missy",
-            lastName: "Flynn"
-        }
-    ],
-    games: []
+const defaultState : IGame = {
+   id: cuid(),
+   player1Id: undefined,
+   player2Id: undefined,
+   moves: [],
+   gameOver: false
 }
 
-export function gameReducer(s: State = defaultState, action: ActionTypes) {
+export function gameReducer(game: IGame = defaultState, action: GameActionTypes) {
     switch (action.type) {
         case ActionTypeKeys.PLAYER_MOVE:
-            return {...s, test: 13};
+            return {...game, moves: game.moves.splice(action.index, 1, action.move)};
         default:
-            return s;
+            return game;
     }
 }

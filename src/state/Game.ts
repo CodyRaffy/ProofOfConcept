@@ -3,4 +3,5 @@ export interface IGame {
     player1Id: string;
     player2Id: string;
     moves: Array<boolean>;
+    gameOver: boolean;
 }
