@@ -1,6 +1,6 @@
 import { GameActionTypes } from "../actions/game/GameActionTypes";
 import { ActionTypeKeys } from "../actions/ActionTypeKeys";
-import { IGame } from "../state/Game";
+import { IGame } from "../types/Game";
 var cuid = require('cuid');
 
 const defaultState : IGame = {

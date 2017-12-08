@@ -1,11 +1,13 @@
 import { AppActionTypes } from "../actions/App/AppActionTypes";
 import { ActionTypeKeys } from "../actions/ActionTypeKeys";
-import { App } from "../state/App";
+import { App } from "../types/App";
 var cuid = require('cuid');
 
 const defaultApp : App = {
     games: [],
-    players: [] 
+    players: [],
+    currentPlayer: undefined,
+    currentGame: undefined 
 }
 
 export function appReducer(state: App = defaultApp, action: AppActionTypes) {

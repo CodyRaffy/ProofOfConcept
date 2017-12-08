@@ -1,9 +1,16 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import { Game } from "./src/components/game/Game";
+import { App } from "./src/components/app/App";
+import { BrowserRouter } from 'react-router-dom'
 
-ReactDOM.render(
-    <Game />,
-    document.getElementById("app")
-);
+import { Provider } from "react-redux";
+import { Store } from "./src/Store"
+
+ReactDOM.render((
+    <BrowserRouter>
+      <Provider store={Store}>
+      <App />
+      </Provider>
+    </BrowserRouter>
+  ), document.getElementById('root') as HTMLElement)
