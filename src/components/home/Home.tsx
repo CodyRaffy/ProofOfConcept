@@ -1,18 +1,9 @@
 import * as React from "react";
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 
 export interface IHomeProps { 
     startSelectPlayer?: () => void;
 }
-
-const ManagePlayersButton = withRouter(({ history }) => (
-    <button
-        type='button'
-        onClick={() => { history.push('/players') }}
-    >
-        Manage Players
-    </button>
-));
 
 export class Home extends React.Component<IHomeProps, {}> {
 
@@ -21,7 +12,7 @@ export class Home extends React.Component<IHomeProps, {}> {
         
         return (
             <div>
-                {ManagePlayersButton}
+                <Link to="/players">Manage Players</Link>
                 <br />
                 <button
                     type="button"
