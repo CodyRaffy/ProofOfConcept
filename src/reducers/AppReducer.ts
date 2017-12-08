@@ -1,4 +1,4 @@
-import { AppActionTypes } from "../actions/App/AppActionTypes";
+import { AppActionTypes } from "../actions/AppActions";
 import { ActionTypeKeys } from "../actions/ActionTypeKeys";
 import { App } from "../types/App";
 var cuid = require('cuid');

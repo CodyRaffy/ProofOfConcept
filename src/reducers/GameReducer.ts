@@ -1,4 +1,4 @@
-import { GameActionTypes } from "../actions/game/GameActionTypes";
+import { GameActionTypes } from "../actions/GameActions";
 import { ActionTypeKeys } from "../actions/ActionTypeKeys";
 import { IGame } from "../types/Game";
 var cuid = require('cuid');
