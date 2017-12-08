@@ -2,6 +2,8 @@ export enum ActionTypeKeys {
     GAME_START = "GAME_END",
     GAME_END = "GAME END",
 
+    START_SELECT_PLAYERS = "START_SELECT_PLAYERS",
+
     START_GAME = "START_GAME",
     PLAYER_MOVE = "PLAYER_MOVE",
 

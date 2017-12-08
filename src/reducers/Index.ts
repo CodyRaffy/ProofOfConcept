@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 
-import { appReducer } from "./AppReducer";
-import { gameReducer } from "./GameReducer";
-import { playerReducer } from "./PlayerReducer";
+import { homePageReducer } from "./uiReducers/HomePageReducer";
 
-export default combineReducers({ appReducer, gameReducer, playerReducer });
+var uiReducer = combineReducers({ homePage: homePageReducer});
+
+export default combineReducers({ ui: uiReducer });

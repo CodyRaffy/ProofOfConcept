@@ -5,20 +5,20 @@ import { IPlayer } from "./../../types/player";
 import { updatePlayer, fetchPlayer } from "./../../actions/PlayerActions";
 
 export interface IPlayerProps {
+    id: string,
     player: IPlayer;
     save?: () => void;
-    fetch?: () => void;
+    fetch?: (id: string) => void;
 }
 
-
-export class Player extends React.Component<IPlayerProps, {}> {
-    componentWillMount() {
-        this.props.fetch()
+export class Players extends React.Component<IPlayerProps, {}> {
+    componentDidMount() {
+        this.props.fetch(this.props.id);
     }
 
     render() {
         const { player, save } = this.props;
-        
+
         return (
             <div>
                 <h1>Player Information</h1>

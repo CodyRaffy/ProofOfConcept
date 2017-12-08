@@ -1,7 +1,8 @@
 import { ActionTypeKeys } from "./ActionTypeKeys";
 
-export type PlayerActionTypes = 
-| UpdatePlayerAction
+export type PlayerActionTypes =
+    | UpdatePlayerAction
+    | FetchPlayerAction;
 
 export interface FetchPlayerAction {
     type: ActionTypeKeys.FETCH_PLAYER;
@@ -14,13 +15,13 @@ export interface UpdatePlayerAction {
     lastName: string;
 }
 
-export const updatePlayer = (firstName: string, lastName: string) : UpdatePlayerAction => ({
+export const updatePlayer = (firstName: string, lastName: string): UpdatePlayerAction => ({
     type: ActionTypeKeys.UPDATE_PLAYER,
     firstName: firstName,
     lastName: lastName
 });
 
-export const fetchPlayer = (id: string) : FetchPlayerAction => ({
+export const fetchPlayer = (id: string): FetchPlayerAction => ({
     type: ActionTypeKeys.FETCH_PLAYER,
     id
 });

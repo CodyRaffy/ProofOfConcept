@@ -8,4 +8,3 @@ export interface PlayerMoveAction {
     index: number;
     move: boolean;
 }
-
