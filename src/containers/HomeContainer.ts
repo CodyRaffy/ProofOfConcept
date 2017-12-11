@@ -14,4 +14,6 @@ export const mapDispatchToProps = (dispatch: Dispatch<actions.HomeActionTypes>) 
     }
 }
 
-export default connect<{}, {}, IHomeProps>(mapStateToProps, mapDispatchToProps)(Home);
+const HomeContainer = connect<{}, {}, IHomeProps>(mapStateToProps, mapDispatchToProps)(Home);
+
+export default HomeContainer;

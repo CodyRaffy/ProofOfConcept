@@ -9,7 +9,9 @@ export enum ActionTypeKeys {
 
     ADD_PLAYER = "ADD_PLAYER",
     FETCH_PLAYER = "FETCH_PLAYER",
+    FETCH_ALL_PLAYERS = "FETCH_ALL_PLAYERS",
     UPDATE_PLAYER = "UPDATE_PLAYER",
+    EDIT_PLAYER = "EDIT_PLAYER",
     DELETE_PLAYER = "DELETE_PLAYER",
 
     OTHER_ACTION = "__any_other_action_type__"

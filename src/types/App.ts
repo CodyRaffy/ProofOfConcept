@@ -9,7 +9,11 @@ export type App = {
     }
     readonly appState: {
         readonly currentGameId: string;
-        readonly currentPlayerIdEditing: string;
+        playerPage: {
+            readonly currentPlayerIdEditing: string;
+            readonly firstName: string;
+            readonly lastName: string;
+        }
     }
     readonly ui: {
         homePage: IHomePage,
