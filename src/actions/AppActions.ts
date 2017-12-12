@@ -1,14 +1,7 @@
 import { ActionTypeKeys } from "./ActionTypeKeys";
 
 export type AppActionTypes = 
-AddPlayerAction | 
-StartGameAction;
-
-export interface AddPlayerAction {
-    type: ActionTypeKeys.ADD_PLAYER;
-    firstName: string;
-    lastName: string;
-}
+| StartGameAction;
 
 export interface StartGameAction {
     type: ActionTypeKeys.START_GAME;

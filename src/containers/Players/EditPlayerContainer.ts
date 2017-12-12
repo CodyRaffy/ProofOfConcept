@@ -4,9 +4,10 @@ import * as actions from './../../actions/PlayerActions';
 import { App } from './../../types/App';
 import { connect, Dispatch } from 'react-redux';
 import { IPlayer } from '../../types/Player';
+var Enumerable = require('linq');
 
 export const mapStateToProps = (App: App, props: IOwnProps): IConnectedState => ({
-    player: App.appState.playerPage.editPlayer,
+    player: App.domain.lookup[App.appState.editPlayerId],
     addingPlayer: App.ui.playerPage.addingPlayer,
     editingPlayer: App.ui.playerPage.editingPlayer
 });

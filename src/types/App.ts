@@ -1,23 +1,26 @@
 import { IGame } from "./Game";
 import { IPlayer } from "./Player";
 import { IHomePage } from "./HomePage";
+import { IPlayerPage } from "./PlayerPage";
 
 export type App = {
-    readonly domain: {
-        readonly games: IGame[];
-        readonly players: IPlayer[];
-    }
-    readonly appState: {
-        readonly currentGameId: string;
-        readonly playerPage: {
-            readonly editPlayer: IPlayer;
-        }
-    }
-    readonly ui: {
-        readonly homePage: IHomePage,
-        readonly playerPage: {
-            readonly addingPlayer: boolean;
-            readonly editingPlayer: boolean;
-        }
-    }
+    readonly domain: IDomain,
+    readonly appState: IAppState,
+    readonly ui: IUi
+}
+
+export interface IDomain {
+    gameIds: string[];
+    playerIds: string[];
+    lookup: any
+}
+
+export interface IAppState {
+    currentGameId: string;
+    editPlayerId: string;
+}
+
+export interface IUi {
+    homePage: IHomePage,
+    playerPage: IPlayerPage
 }

@@ -5,7 +5,7 @@ import { App } from './../../types/App';
 import { connect, Dispatch } from 'react-redux';
 
 export const mapStateToProps = (App: App, props: IOwnProps) : IConnectedState => ({       
-    players: App.domain.players
+    players: App.domain.playerIds.map(i => App.domain.lookup[i])
 });
 
 export const mapDispatchToProps = (dispatch: Dispatch<actions.PlayerActionTypes>) : IConnectedDispatch => ({});
