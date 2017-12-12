@@ -24,7 +24,7 @@ export class PlayersGrid extends React.Component<IOwnProps & IConnectedState & I
         const { players } = this.props;
         return (
             <div>
-                <h2>Existing Players</h2>
+                <h3>Existing Players</h3>
                 <table>
                     <thead>
                         <tr>

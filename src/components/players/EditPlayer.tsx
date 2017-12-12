@@ -13,13 +13,18 @@ export interface IConnectedState {
 }
 
 export interface IConnectedDispatch {
-    save?: (player: IPlayer) => void;
+    save : (player: IPlayer) => void;
+    add: (firstName: string, lastName: string) => void;
 }
 
 export class EditPlayer extends React.Component<IOwnProps & IConnectedState & IConnectedDispatch, {}> {
 
     render() {
-        const { player, addingPlayer, editingPlayer, save } = this.props;
+        const { player, addingPlayer, editingPlayer, add, save } = this.props;
+
+        const saveButton : JSX.Element = (<button onClick={() => add(player.firstName, player.lastName)}>Save Changes</button>);
+        const addButton : JSX.Element = (<button onClick={() => save(player)}>Add New Player</button>);
+        const addOrSaveButton = addingPlayer ? addButton : saveButton; 
 
         return (
             <div>
@@ -30,7 +35,7 @@ export class EditPlayer extends React.Component<IOwnProps & IConnectedState & IC
                 <label htmlFor="lastName">Last Name:</label>
                 <input id="lastName" type="text" value={player.lastName} />
                 <br />
-                <button onClick={() => save(player)}>Save</button>
+                {addOrSaveButton }
             </div>
         );
     }

@@ -14,14 +14,9 @@ export interface IConnectedState {
 }
 
 export interface IConnectedDispatch {
-    fetchAllPlayers?: () => void;
+    fetchAllPlayers: () => void;
+    addPlayer: () => void;
 }
-
-const getEditUserHtml: (show: boolean) => JSX.Element = (show: boolean) => {
-    if (show !== true) return null;
-    return (<EditPlayer></EditPlayer>);
-}
-
 
 export class Players extends React.Component<IOwnProps & IConnectedState & IConnectedDispatch, {}> {
     componentDidMount() {
@@ -31,13 +26,21 @@ export class Players extends React.Component<IOwnProps & IConnectedState & IConn
     }
 
     render() {
-        const { showEdit } = this.props;
+        const { showEdit, players, addPlayer } = this.props;
+
+        const addPlayerButton = (<button type="button" onClick={addPlayer}>Add Player</button>);
+        const showAddPlayerButton = !showEdit;
+        const showPlayerGrid = players.length > 0 && !showEdit;
+        const showEmptyPlayersGrid = players.length === 0 && !showEdit;
 
         return (
             <div>
                 <h2>Tic Tac Toe Players</h2>
-                <PlayersGrid></PlayersGrid>
-                {getEditUserHtml(showEdit)}
+                {showAddPlayerButton ? addPlayerButton : null}
+                {showAddPlayerButton ? <br /> : null}
+                {showPlayerGrid ? (<PlayersGrid></PlayersGrid>) : null}
+                {showEmptyPlayersGrid ? (<span>Please add a Tic Tac Toe Player</span>) : null}
+                {showEdit ? (<EditPlayer></EditPlayer>) : null}
             </div>
         );
     }
