@@ -1,11 +1,15 @@
 import * as React from "react";
 import { Link } from 'react-router-dom'
 
-export interface IHomeProps { 
+export interface IOwnProps { }
+
+export interface IConnectedState { }
+
+export interface IConnectedDispatch { 
     startSelectPlayer?: () => void;
 }
 
-export class Home extends React.Component<IHomeProps, {}> {
+export class Home extends React.Component<IOwnProps & IConnectedState & IConnectedDispatch, {}> {
 
     render() {
         const { startSelectPlayer } = this.props;

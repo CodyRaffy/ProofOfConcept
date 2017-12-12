@@ -5,13 +5,18 @@ import { Link } from 'react-router-dom'
 
 import { updatePlayer, fetchPlayer } from "./../../actions/PlayerActions";
 
-export interface IPlayerGridRowProps {
+export interface IOwnProps { 
     player: IPlayer
+}
+
+export interface IConnectedState { }
+
+export interface IConnectedDispatch { 
     editItem?: (id: string) => void;
     deleteItem?: (id: string) => void;
 }
 
-export class PlayersGridRow extends React.Component<IPlayerGridRowProps, {}> {
+export class PlayersGridRow extends React.Component<IOwnProps & IConnectedState & IConnectedDispatch, {}> {
 
     render() {
         const { player, editItem, deleteItem } = this.props;
