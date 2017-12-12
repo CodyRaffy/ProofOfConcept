@@ -7,7 +7,7 @@ import { IPlayer } from '../../types/Player';
 var Enumerable = require('linq');
 
 export const mapStateToProps = (App: App, props: IOwnProps): IConnectedState => ({
-    player: App.domain.lookup[App.appState.editPlayerId],
+    player: App.domain.lookup[App.appState.editPlayerId] || {},
     addingPlayer: App.ui.playerPage.addingPlayer,
     editingPlayer: App.ui.playerPage.editingPlayer
 });

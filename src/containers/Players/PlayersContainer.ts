@@ -6,7 +6,8 @@ import { connect, Dispatch } from 'react-redux';
 
 export const mapStateToProps = (App: App, props: IOwnProps) => {
     return {
-        players: App.domain.playerIds.map(i => App.domain.lookup[i])
+        players: App.domain.playerIds.map(i => App.domain.lookup[i]),
+        showEdit: App.ui.playerPage.addingPlayer || App.ui.playerPage.editingPlayer
     }
 }
 

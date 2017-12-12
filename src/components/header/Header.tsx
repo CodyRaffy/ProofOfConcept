@@ -5,7 +5,7 @@ export interface HeaderProps { }
 export class Header extends React.Component<HeaderProps, {}> {
     render() {
         return (
-            <div>Header</div>
+            <h1>Tic Tac Toe Baby</h1>
         );
     }
 }

@@ -10,11 +10,18 @@ export interface IOwnProps { }
 
 export interface IConnectedState {
     players: IPlayer[];
+    showEdit: boolean;
 }
 
-export interface IConnectedDispatch { 
+export interface IConnectedDispatch {
     fetchAllPlayers?: () => void;
 }
+
+const getEditUserHtml: (show: boolean) => JSX.Element = (show: boolean) => {
+    if (show !== true) return null;
+    return (<EditPlayer></EditPlayer>);
+}
+
 
 export class Players extends React.Component<IOwnProps & IConnectedState & IConnectedDispatch, {}> {
     componentDidMount() {
@@ -24,10 +31,13 @@ export class Players extends React.Component<IOwnProps & IConnectedState & IConn
     }
 
     render() {
+        const { showEdit } = this.props;
+
         return (
             <div>
+                <h2>Tic Tac Toe Players</h2>
                 <PlayersGrid></PlayersGrid>
-                <EditPlayer></EditPlayer>
+                {getEditUserHtml(showEdit)}
             </div>
         );
     }

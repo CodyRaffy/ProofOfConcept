@@ -12,7 +12,7 @@ export interface IConnectedState {
     editingPlayer: boolean;
 }
 
-export interface IConnectedDispatch { 
+export interface IConnectedDispatch {
     save?: (player: IPlayer) => void;
 }
 

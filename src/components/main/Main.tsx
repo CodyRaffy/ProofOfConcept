@@ -8,16 +8,16 @@ import { Game } from "./../game/Game";
 export interface MainProps { }
 
 export class Main extends React.Component<MainProps, {}> {
-  
- render() {
-     return (
-      <main>
-      <Switch>
-        <Route exact path='/' component={Home}/>
-        <Route path='/players/:id' component={Players}/>
-        <Route path='/game/:id' component={Game}/>
-      </Switch>
-  </main>
-     );
- }
+
+    render() {
+        return (
+            <main>
+                <Switch>
+                    <Route exact path='/' component={Home} />
+                    <Route path='/players' component={Players} />
+                    <Route path='/game/:id' component={Game} />
+                </Switch>
+            </main>
+        );
+    }
 }
