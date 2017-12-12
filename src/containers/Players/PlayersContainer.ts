@@ -1,24 +1,19 @@
-import { Players, IPlayerProps } from './../components/players/Players';
-import * as actions from './../actions/PlayerActions';
+import { Players, IOwnProps } from './../../components/players/Players';
+import * as actions from './../../actions/PlayerActions';
 
-import { App } from './../types/App';
+import { App } from './../../types/App';
 import { connect, Dispatch } from 'react-redux';
 
-export const mapStateToProps = (App: App) => {
+export const mapStateToProps = (App: App, props: IOwnProps) => {
     return {
-        players: App.domain.players,
-        currentPlayerIdEditing: App.appState.playerPage.currentPlayerIdEditing,
-        firstName: App.appState.playerPage.firstName,
-        lastName: App.appState.playerPage.lastName,
-        addingPlayer: App.ui.playerPage.addingPlayer,
-        editingPlayer: App.ui.playerPage.editingPlayer,
+        players: App.domain.players
     }
 }
 
 export const mapDispatchToProps = (dispatch: Dispatch<actions.PlayerActionTypes>) => {
     return {
-        fetchAllPlayers: () => dispatch(actions.fetchAllPlayers())
+        fetchAllPlayers: () => dispatch(actions.fetchAllPlayers()),
     }
 }
 
-export default connect<{}, {}, IPlayerProps>(mapStateToProps, mapDispatchToProps)(Players);
+export default connect<{}, {}, IOwnProps>(mapStateToProps, mapDispatchToProps)(Players);

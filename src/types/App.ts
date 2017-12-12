@@ -9,17 +9,15 @@ export type App = {
     }
     readonly appState: {
         readonly currentGameId: string;
-        playerPage: {
-            readonly currentPlayerIdEditing: string;
-            readonly firstName: string;
-            readonly lastName: string;
+        readonly playerPage: {
+            readonly editPlayer: IPlayer;
         }
     }
     readonly ui: {
-        homePage: IHomePage,
-        playerPage: {
-            addingPlayer: boolean;
-            editingPlayer: boolean;
+        readonly homePage: IHomePage,
+        readonly playerPage: {
+            readonly addingPlayer: boolean;
+            readonly editingPlayer: boolean;
         }
     }
 }

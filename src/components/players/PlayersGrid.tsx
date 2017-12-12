@@ -2,11 +2,15 @@ import * as React from "react";
 import { IPlayer } from "./../../types/player";
 import PlayersGridRow from './../../containers/Players/PlayersGridRowContainer';
 
-export interface IPlayersGridProps {
-    players: IPlayer[]
+export interface IOwnProps { }
+
+export interface IConnectedState {
+    players : IPlayer[]
 }
 
-export class PlayersGrid extends React.Component<IPlayersGridProps, {}> {
+export interface IConnectedDispatch { }
+
+export class PlayersGrid extends React.Component<IOwnProps & IConnectedState & IConnectedDispatch, {}> {
 
     private renderRows(players: IPlayer[]): JSX.Element[] {
         var returnElements: JSX.Element[];

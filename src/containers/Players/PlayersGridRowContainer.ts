@@ -4,8 +4,10 @@ import * as actions from './../../actions/PlayerActions';
 import { App } from './../../types/App';
 import { connect, Dispatch } from 'react-redux';
 
-export const mapStateToProps = (App: App) => {
-    return { }
+export const mapStateToProps = (App: App, props: IPlayerGridRowProps) => {
+    return {
+        player: props.player
+    }
 }
 
 export const mapDispatchToProps = (dispatch: Dispatch<actions.PlayerActionTypes>) => {

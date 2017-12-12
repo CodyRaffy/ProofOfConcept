@@ -2,7 +2,7 @@ import * as React from "react";
 import { Switch, Route } from 'react-router-dom';
 
 import Home from "./../../containers/HomeContainer";
-import Players from "./../../containers/PlayersContainer";
+import Players from "./../../containers/Players/PlayersContainer";
 import { Game } from "./../game/Game";
 
 export interface MainProps { }

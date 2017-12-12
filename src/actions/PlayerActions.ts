@@ -26,6 +26,7 @@ export interface FetchAllPlayersAction {
 
 export interface UpdatePlayerAction {
     type: ActionTypeKeys.UPDATE_PLAYER;
+    id: string;
     firstName: string;
     lastName: string;
 }
@@ -40,10 +41,11 @@ export const deletePlayer = (id: string): DeletePlayerItemAction => ({
     id
 });
 
-export const updatePlayer = (firstName: string, lastName: string): UpdatePlayerAction => ({
+export const updatePlayer = (id: string, firstName: string, lastName: string): UpdatePlayerAction => ({
     type: ActionTypeKeys.UPDATE_PLAYER,
-    firstName: firstName,
-    lastName: lastName
+    id,
+    firstName,
+    lastName
 });
 
 export const fetchPlayer = (id: string): FetchPlayerAction => ({
