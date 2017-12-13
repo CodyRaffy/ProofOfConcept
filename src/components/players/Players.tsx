@@ -3,6 +3,7 @@ import { Store } from "./../../Store";
 import { IPlayer } from "./../../types/player";
 import PlayersGrid from "./../../containers/Players/PlayersGridContainer";
 import EditPlayer from "./../../containers/Players/EditPlayerContainer";
+import AddPlayer from "./../../containers/Players/AddPlayerContainer";
 
 import { updatePlayer, fetchPlayer } from "./../../actions/PlayerActions";
 
@@ -11,6 +12,7 @@ export interface IOwnProps { }
 export interface IConnectedState {
     players: IPlayer[];
     showEdit: boolean;
+    showAdd: boolean;
 }
 
 export interface IConnectedDispatch {
@@ -26,21 +28,20 @@ export class Players extends React.Component<IOwnProps & IConnectedState & IConn
     }
 
     render() {
-        const { showEdit, players, addPlayer } = this.props;
+        const { showEdit, showAdd, players, addPlayer } = this.props;
 
-        const addPlayerButton = (<button type="button" onClick={addPlayer}>Add Player</button>);
-        const showAddPlayerButton = !showEdit;
-        const showPlayerGrid = players.length > 0 && !showEdit;
-        const showEmptyPlayersGrid = players.length === 0 && !showEdit;
+        const addingOrEditing = showAdd || showEdit; 
+        const showPlayerGrid = players.length > 0 && !addingOrEditing;
+        const showEmptyPlayersGrid = players.length === 0 && !addingOrEditing;
 
         return (
             <div>
                 <h2>Tic Tac Toe Players</h2>
-                {showAddPlayerButton ? addPlayerButton : null}
-                {showAddPlayerButton ? <br /> : null}
-                {showPlayerGrid ? (<PlayersGrid></PlayersGrid>) : null}
-                {showEmptyPlayersGrid ? (<span>Please add a Tic Tac Toe Player</span>) : null}
-                {showEdit ? (<EditPlayer></EditPlayer>) : null}
+                {!addingOrEditing && [(<button className="btn btn-primary" type="button" onClick={addPlayer}>Add Player</button>), (<br/>)]}
+                {showPlayerGrid && (<PlayersGrid></PlayersGrid>)}
+                {showEmptyPlayersGrid && (<span>Please add a Tic Tac Toe Player</span>)  }
+                {showEdit && (<EditPlayer></EditPlayer>) }
+                {showAdd && (<AddPlayer></AddPlayer>) }
             </div>
         );
     }
