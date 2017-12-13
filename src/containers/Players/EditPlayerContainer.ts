@@ -12,6 +12,7 @@ export const mapStateToProps = (App: App, props: IOwnProps): IConnectedState => 
 
 export const mapDispatchToProps = (dispatch: Dispatch<actions.PlayerActionTypes>): IConnectedDispatch => ({
     save: (player: IPlayer) => dispatch(actions.updatePlayer(player.id, player.firstName, player.lastName)),
+    setEditPlayer: (id: string) => dispatch(actions.setEditPlayer(id))
 });
 
 export default connect<IConnectedState, IConnectedDispatch, IOwnProps>(mapStateToProps, mapDispatchToProps)(EditPlayer);

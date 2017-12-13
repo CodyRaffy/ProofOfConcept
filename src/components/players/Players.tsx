@@ -11,13 +11,11 @@ export interface IOwnProps {
 
 export interface IConnectedState {
     players: IPlayer[];
-    showEdit: boolean;
     showAdd: boolean;
 }
 
 export interface IConnectedDispatch {
     fetchAllPlayers: () => void;
-    setEditPlayer: (id: string) => void;
     addPlayer: () => void;
 }
 
@@ -26,26 +24,21 @@ export class Players extends React.Component<IOwnProps & IConnectedState & IConn
         if (this.props.players === null || this.props.players === undefined || this.props.players.length === 0) {
             this.props.fetchAllPlayers();
         }
-        if (this.props.id) {
-            this.props.setEditPlayer(this.props.id);
-        }
     }
 
     render() {
-        const { showEdit, showAdd, players, addPlayer } = this.props;
+        const {   showAdd, players, addPlayer } = this.props;
 
-        const addingOrEditing = showAdd || showEdit; 
-        const showPlayerGrid = players.length > 0 && !addingOrEditing;
-        const showEmptyPlayersGrid = players.length === 0 && !addingOrEditing;
+        const showPlayerGrid = players.length > 0 && !showAdd;
+        const showEmptyPlayersGrid = players.length === 0 && !showAdd;
 
         return (
             <div>
                 <h2>Tic Tac Toe Players</h2>
-                {!addingOrEditing && (<button className="btn btn-primary" type="button" onClick={addPlayer}>Add Player</button>)}
-                {!addingOrEditing && (<br/>)}
+                {!showAdd && (<button className="btn btn-primary" type="button" onClick={addPlayer}>Add Player</button>)}
+                {!showAdd && (<br/>)}
                 {showPlayerGrid && (<PlayersGrid></PlayersGrid>)}
                 {showEmptyPlayersGrid && (<span>Please add a Tic Tac Toe Player</span>)  }
-                {showEdit && (<EditPlayer></EditPlayer>) }
                 {showAdd && (<AddPlayer></AddPlayer>) }
             </div>
         );
