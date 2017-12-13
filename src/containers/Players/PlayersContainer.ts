@@ -15,6 +15,7 @@ export const mapStateToProps = (App: App, props: IOwnProps) => {
 export const mapDispatchToProps = (dispatch: Dispatch<actions.PlayerActionTypes>) => {
     return {
         fetchAllPlayers: () => dispatch(actions.fetchAllPlayers()),
+        setEditPlayer: (id: string) => dispatch(actions.setEditPlayer(id)),
         addPlayer: () => dispatch(actions.startAddPlayer())
     }
 }

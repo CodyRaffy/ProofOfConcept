@@ -11,7 +11,7 @@ export function appStateReducer(appState: IAppState = defaultState, action: Play
     switch (action.type) {
         case ActionTypeKeys.START_ADD_PLAYER:
             return { ...appState, addPlayer: {} };
-        case ActionTypeKeys.EDIT_PLAYER:
+        case ActionTypeKeys.SET_EDIT_PLAYER:
             return { ...appState, editPlayerId: action.id };
         default:
             return appState;

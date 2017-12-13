@@ -2,8 +2,6 @@ import * as React from "react";
 import { Store } from "./../../Store";
 import { IPlayer } from "./../../types/player";
 
-import { updatePlayer, fetchPlayer } from "./../../actions/PlayerActions";
-
 export interface IOwnProps { }
 
 export interface IConnectedState {

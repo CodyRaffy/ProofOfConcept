@@ -3,8 +3,6 @@ import { Store } from "./../../Store";
 import { IPlayer } from "./../../types/player";
 import { Link } from 'react-router-dom'
 
-import { updatePlayer, fetchPlayer } from "./../../actions/PlayerActions";
-
 export interface IOwnProps {
     player: IPlayer
 }

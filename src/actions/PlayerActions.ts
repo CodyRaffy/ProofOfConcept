@@ -4,10 +4,9 @@ export type PlayerActionTypes =
     | StartAddPlayerItemAction
     | SaveAddPlayerItemAction
     | CancelAddPlayerItemAction
-    | EditPlayerItemAction
     | DeletePlayerItemAction
     | UpdatePlayerAction
-    | FetchPlayerAction
+    | SetEditPlayerAction
     | FetchAllPlayersAction;
 
 export interface StartAddPlayerItemAction {
@@ -22,16 +21,12 @@ export interface SaveAddPlayerItemAction {
 export interface CancelAddPlayerItemAction {
     type: ActionTypeKeys.CANCEL_ADD_PLAYER;
 }
-export interface EditPlayerItemAction {
-    type: ActionTypeKeys.EDIT_PLAYER;
-    id: string;
-}
 export interface DeletePlayerItemAction {
     type: ActionTypeKeys.DELETE_PLAYER;
     id: string;
 }
-export interface FetchPlayerAction {
-    type: ActionTypeKeys.FETCH_PLAYER;
+export interface SetEditPlayerAction {
+    type: ActionTypeKeys.SET_EDIT_PLAYER;
     id: string;
 }
 
@@ -58,10 +53,6 @@ export const saveAddPlayer = (id: string, firstName: string, lastName: string): 
 export const cancelAddPlayer = (): CancelAddPlayerItemAction => ({
     type: ActionTypeKeys.CANCEL_ADD_PLAYER,
 });
-export const editPlayer = (id: string): EditPlayerItemAction => ({
-    type: ActionTypeKeys.EDIT_PLAYER,
-    id
-});
 export const deletePlayer = (id: string): DeletePlayerItemAction => ({
     type: ActionTypeKeys.DELETE_PLAYER,
     id
@@ -72,8 +63,8 @@ export const updatePlayer = (id: string, firstName: string, lastName: string): U
     firstName,
     lastName
 });
-export const fetchPlayer = (id: string): FetchPlayerAction => ({
-    type: ActionTypeKeys.FETCH_PLAYER,
+export const setEditPlayer = (id: string): SetEditPlayerAction => ({
+    type: ActionTypeKeys.SET_EDIT_PLAYER,
     id
 });
 export const fetchAllPlayers = (): FetchAllPlayersAction => ({

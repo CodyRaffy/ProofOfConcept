@@ -7,7 +7,7 @@ import { connect, Dispatch } from 'react-redux';
 export const mapStateToProps = (App: App, props: IOwnProps): IConnectedState => ({ });
 
 export const mapDispatchToProps = (dispatch: Dispatch<actions.PlayerActionTypes>) : IConnectedDispatch => ({
-    editItem: (id: string) => dispatch(actions.editPlayer(id)),
+    editItem: (id: string) => dispatch(actions.setEditPlayer(id)),
     deleteItem: (id: string) => dispatch(actions.deletePlayer(id))
 });
 

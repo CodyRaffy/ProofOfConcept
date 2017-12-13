@@ -5,9 +5,9 @@ import PlayersGrid from "./../../containers/Players/PlayersGridContainer";
 import EditPlayer from "./../../containers/Players/EditPlayerContainer";
 import AddPlayer from "./../../containers/Players/AddPlayerContainer";
 
-import { updatePlayer, fetchPlayer } from "./../../actions/PlayerActions";
-
-export interface IOwnProps { }
+export interface IOwnProps { 
+    id: string // from route
+}
 
 export interface IConnectedState {
     players: IPlayer[];
@@ -17,6 +17,7 @@ export interface IConnectedState {
 
 export interface IConnectedDispatch {
     fetchAllPlayers: () => void;
+    setEditPlayer: (id: string) => void;
     addPlayer: () => void;
 }
 
@@ -24,6 +25,9 @@ export class Players extends React.Component<IOwnProps & IConnectedState & IConn
     componentDidMount() {
         if (this.props.players === null || this.props.players === undefined || this.props.players.length === 0) {
             this.props.fetchAllPlayers();
+        }
+        if (this.props.id) {
+            this.props.setEditPlayer(this.props.id);
         }
     }
 
