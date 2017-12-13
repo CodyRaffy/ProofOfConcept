@@ -6,37 +6,61 @@ import { updatePlayer, fetchPlayer } from "./../../actions/PlayerActions";
 
 export interface IOwnProps { }
 
-export interface IConnectedState {
-    player: IPlayer,
+export interface IOwnState {
+    firstName: string;
+    lastName: string;
 }
+
+export interface IConnectedState { }
 
 export interface IConnectedDispatch {
     add: (firstName: string, lastName: string) => void;
 }
 
-export class AddPlayer extends React.Component<IOwnProps & IConnectedState & IConnectedDispatch, {}> {
+export class AddPlayer extends React.Component<IOwnProps & IConnectedState & IConnectedDispatch, IOwnState> {
+    constructor(props: IOwnProps & IConnectedState & IConnectedDispatch) {
+        super(props);
+        this.state = {
+            firstName:'',
+            lastName: ''
+        }
+    }
 
-    firstNameChanged = () => {
-        
+    handleInputChange = (event: any) => {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+
+        this.setState({
+            [name]: value
+        });
     }
     
     addClickHandler = () => {
-        const {player, add} = this.props;
-        add(player.firstName, player.lastName);
+        const { add} = this.props;
+        add(this.state.firstName, this.state.lastName);
     }
     
     render() {
-        const { player } = this.props;
-        
         return (
             <div>
                 <h1>Player Information</h1>
                 <label htmlFor="firstName">First Name:</label>
-                <input id="firstName" type="text" value={player.firstName} onChange={this.firstNameChanged}/> 
+                <input 
+                    id="firstName" 
+                    name="firstName" 
+                    type="text" 
+                    value={this.state.firstName} 
+                    onChange={this.handleInputChange}/> 
                 <label htmlFor="lastName">Last Name:</label>
-                <input id="lastName" type="text" value={player.lastName} />
+                <input 
+                    id="lastName" 
+                    name="lastName" 
+                    type="text" 
+                    value={this.state.lastName} 
+                    onChange={this.handleInputChange}/>
                 <br />
-                <button onClick={this.addClickHandler}>Add New Player</button>
+                <button className="btn btn-primary" onClick={this.addClickHandler}>Add New Player</button>
             </div>
         );
     }

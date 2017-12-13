@@ -19,6 +19,7 @@ export class Home extends React.Component<IOwnProps & IConnectedState & IConnect
                 <Link to="/players">Manage Players</Link>
                 <br />
                 <button
+                    className="btn btn-primary"
                     type="button"
                     onClick={startSelectPlayer}
                 >

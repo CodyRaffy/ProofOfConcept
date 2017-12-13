@@ -18,7 +18,6 @@ export interface IDomain {
 export interface IAppState {
     currentGameId: string;
     editPlayerId: string;
-    addPlayer: IPlayer;
 }
 
 export interface IUi {
