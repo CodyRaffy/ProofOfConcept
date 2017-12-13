@@ -21,7 +21,7 @@ export class AddPlayer extends React.Component<IOwnProps & IConnectedState & ICo
     constructor(props: IOwnProps & IConnectedState & IConnectedDispatch) {
         super(props);
         this.state = {
-            firstName:'',
+            firstName: '',
             lastName: ''
         }
     }
@@ -35,30 +35,30 @@ export class AddPlayer extends React.Component<IOwnProps & IConnectedState & ICo
             [name]: value
         });
     }
-    
+
     addClickHandler = () => {
-        const { add} = this.props;
+        const { add } = this.props;
         add(this.state.firstName, this.state.lastName);
     }
-    
+
     render() {
         return (
             <div>
                 <h1>Player Information</h1>
                 <label htmlFor="firstName">First Name:</label>
-                <input 
-                    id="firstName" 
-                    name="firstName" 
-                    type="text" 
-                    value={this.state.firstName} 
-                    onChange={this.handleInputChange}/> 
+                <input
+                    id="firstName"
+                    name="firstName"
+                    type="text"
+                    value={this.state.firstName}
+                    onChange={this.handleInputChange} />
                 <label htmlFor="lastName">Last Name:</label>
-                <input 
-                    id="lastName" 
-                    name="lastName" 
-                    type="text" 
-                    value={this.state.lastName} 
-                    onChange={this.handleInputChange}/>
+                <input
+                    id="lastName"
+                    name="lastName"
+                    type="text"
+                    value={this.state.lastName}
+                    onChange={this.handleInputChange} />
                 <br />
                 <button className="btn btn-primary" onClick={this.addClickHandler}>Add New Player</button>
             </div>

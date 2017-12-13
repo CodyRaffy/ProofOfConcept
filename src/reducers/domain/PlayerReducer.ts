@@ -5,6 +5,8 @@ export function playerReducer(playerIds: string[] = [], action: PlayerActionType
     switch (action.type) {
         case ActionTypeKeys.SAVE_ADD_PLAYER:
             return playerIds.concat([action.id]);
+        case ActionTypeKeys.DELETE_PLAYER:
+            return playerIds.filter(item => item !== action.id);
         default:
             return playerIds;
     }

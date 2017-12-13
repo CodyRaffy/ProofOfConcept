@@ -5,18 +5,22 @@ import { Link } from 'react-router-dom'
 
 import { updatePlayer, fetchPlayer } from "./../../actions/PlayerActions";
 
-export interface IOwnProps { 
+export interface IOwnProps {
     player: IPlayer
 }
 
 export interface IConnectedState { }
 
-export interface IConnectedDispatch { 
+export interface IConnectedDispatch {
     editItem?: (id: string) => void;
     deleteItem?: (id: string) => void;
 }
 
 export class PlayersGridRow extends React.Component<IOwnProps & IConnectedState & IConnectedDispatch, {}> {
+    delete = () => {
+        const { deleteItem, player } = this.props;
+        deleteItem(player.id);
+    }
 
     render() {
         const { player, editItem, deleteItem } = this.props;
@@ -29,7 +33,7 @@ export class PlayersGridRow extends React.Component<IOwnProps & IConnectedState 
                     <Link to={editLinkUrl}>Edit</Link>
                 </td>
                 <td>
-                    <a href="#" onClick={() => deleteItem(player.id)}>Delete</a>
+                    <a href="#" onClick={this.delete}>Delete</a>
                 </td>
             </tr>
         );
