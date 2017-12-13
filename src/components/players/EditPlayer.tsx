@@ -17,8 +17,11 @@ export interface IConnectedDispatch {
 
 export class EditPlayer extends React.Component<IOwnProps & IConnectedState & IConnectedDispatch, {}> {
     componentDidMount() {
-        if (this.props.id) {
-            this.props.setEditPlayer(this.props.id);
+        var match : any = (this.props as any).match;
+        const playerId : string = match.params.id;
+
+        if (playerId) {
+            this.props.setEditPlayer(playerId);
         }
     }
 
@@ -36,11 +39,11 @@ export class EditPlayer extends React.Component<IOwnProps & IConnectedState & IC
             <div>
                 <h1>Player Information</h1>
                 <label htmlFor="firstName">First Name:</label>
-                <input id="firstName" type="text" value={player.firstName} /><h1>{player.firstName}</h1>
+                <input id="firstName" type="text" value={player.firstName} />
                 <label htmlFor="lastName">Last Name:</label>
                 <input id="lastName" type="text" value={player.lastName} />
                 <br />
-                <button onClick={this.saveChangesClickHandler}>Save Changes</button> 
+                <button onClick={this.saveChangesClickHandler} className="btn btn-primary">Save Changes</button> 
             </div>
         );
     }
