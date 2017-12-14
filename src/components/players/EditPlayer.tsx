@@ -60,7 +60,6 @@ export class EditPlayer extends React.Component<IOwnProps & IConnectedState & IC
                     value={player.lastName}
                     onChange={this.saveChangesClickHandler} />
                 <br />
-                <button onClick={this.saveChangesClickHandler} className="btn btn-primary">Save Changes</button>
             </div>
         );
     }
