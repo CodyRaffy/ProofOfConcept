@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
+var playersApi = require("./api/PlayersApi");
 var App = /** @class */ (function () {
     function App() {
         this.express = express();
@@ -12,12 +13,10 @@ var App = /** @class */ (function () {
             res.json({
                 message: 'Hello World!'
             });
-        });
-        router.get('/api/players', function (req, res) {
-            res.json({
-                message: 'Hello World!'
+        }),
+            router.get('/api/players', function (req, res) {
+                res.json(playersApi.getAllPlayers());
             });
-        });
         this.express.use('/', router);
     };
     return App;

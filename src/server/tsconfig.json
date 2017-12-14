@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "outDir": "../../dest/server",
+        "outDir": "../../dest",
         "sourceMap": true,
         "moduleResolution": "node",
         "noImplicitAny": true,
@@ -8,6 +8,7 @@
         "target": "es5"
     },
     "include": [
-        "ts/**/*"
+        "**/*",
+        "../shared/**/*"
     ]
 }

@@ -1,5 +1,5 @@
 import { applyMiddleware, createStore } from "redux";
-
+import ReduxThunk from 'redux-thunk'
 import { createLogger } from 'redux-logger';
 
 //var thunk = require("redux-thunk");
@@ -12,6 +12,6 @@ const logger = createLogger( {
 });
 
 //const middleware = applyMiddleware(promise(), thunk, logger());
-const middleware = applyMiddleware(logger);
+const middleware = applyMiddleware(logger, ReduxThunk);
 
 export const Store = createStore(reducer, middleware);

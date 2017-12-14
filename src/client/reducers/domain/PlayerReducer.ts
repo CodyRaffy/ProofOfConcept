@@ -7,6 +7,8 @@ export function playerReducer(playerIds: string[] = [], action: PlayerActionType
             return playerIds.concat([action.id]);
         case ActionTypeKeys.DELETE_PLAYER:
             return playerIds.filter(item => item !== action.id);
+        case ActionTypeKeys.FETCH_ALL_PLAYERS_SUCCESS:
+            return action.players.map(i => i.id);
         default:
             return playerIds;
     }

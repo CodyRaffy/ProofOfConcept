@@ -1,4 +1,9 @@
 import { ActionTypeKeys } from "./ActionTypeKeys";
+import { Action, ActionCreator, Dispatch } from 'redux';
+import { App } from "./../types/App";
+import { ThunkAction } from 'redux-thunk';
+import * as playerApi from "./../api/PlayerApi"
+import { IPlayer } from "./../../shared/models/Player"
 
 export type PlayerActionTypes =
     | StartAddPlayerItemAction
@@ -7,7 +12,9 @@ export type PlayerActionTypes =
     | DeletePlayerItemAction
     | UpdatePlayerAction
     | SetEditPlayerAction
-    | FetchAllPlayersAction;
+    | BeginFetchAllPlayersAction
+    | FetchAllPlayersSuccessAction
+    | FetchAllPlayersFailAction;
 
 export interface StartAddPlayerItemAction {
     type: ActionTypeKeys.START_ADD_PLAYER;
@@ -30,8 +37,15 @@ export interface SetEditPlayerAction {
     id: string;
 }
 
-export interface FetchAllPlayersAction {
-    type: ActionTypeKeys.FETCH_ALL_PLAYERS;
+export interface FetchAllPlayersSuccessAction {
+    type: ActionTypeKeys.FETCH_ALL_PLAYERS_SUCCESS;
+    players: IPlayer[];
+}
+export interface FetchAllPlayersFailAction {
+    type: ActionTypeKeys.FETCH_ALL_PLAYERS_FAIL;
+}
+export interface BeginFetchAllPlayersAction {
+    type: ActionTypeKeys.BEGIN_FETCH_ALL_PLAYERS;
 }
 
 export interface UpdatePlayerAction {
@@ -67,6 +81,16 @@ export const setEditPlayer = (id: string): SetEditPlayerAction => ({
     type: ActionTypeKeys.SET_EDIT_PLAYER,
     id
 });
-export const fetchAllPlayers = (): FetchAllPlayersAction => ({
-    type: ActionTypeKeys.FETCH_ALL_PLAYERS
-});
+
+export const fetchAllPlayers = () => {
+    return (dispatch: any) => {
+        playerApi.fetchAllPlayers
+            .then((response: any) => dispatch({
+                type: ActionTypeKeys.FETCH_ALL_PLAYERS_SUCCESS,
+                players: response.data
+            }).error((response: any) => dispatch({
+                type: ActionTypeKeys.FETCH_ALL_PLAYERS_FAIL,
+                error: response.error
+            })));
+      }
+};
