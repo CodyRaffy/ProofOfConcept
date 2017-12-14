@@ -1,4 +1,5 @@
 import * as express from 'express'
+import * as playersApi from "./api/PlayersApi"
 
 class App {
   public express: any;
@@ -14,6 +15,9 @@ class App {
       res.json({
         message: 'Hello World!'
       })
+    }),
+    router.get('/api/players', (req: any, res: any) => {
+      res.json(playersApi.getAllPlayers())
     })
     this.express.use('/', router)
   }

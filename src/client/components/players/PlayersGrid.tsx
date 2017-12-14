@@ -1,5 +1,5 @@
 import * as React from "react";
-import { IPlayer } from "./../../types/player";
+import { IPlayer } from "./../../../shared/models/player";
 import PlayersGridRow from './../../containers/Players/PlayersGridRowContainer';
 
 export interface IOwnProps { }

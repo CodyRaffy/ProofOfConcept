@@ -3,8 +3,8 @@ import * as actions from './../../actions/PlayerActions';
 
 import { App } from './../../types/App';
 import { connect, Dispatch } from 'react-redux';
-import { IPlayer } from '../../types/Player';
-var cuid = require('cuid'); 
+import { IPlayer } from '../../../shared/models/player';
+var cuid = require('cuid');
 
 export const mapStateToProps = (App: App, props: IOwnProps): IConnectedState => ({});
 

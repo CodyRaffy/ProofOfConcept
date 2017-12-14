@@ -1,5 +1,5 @@
 import { IGame } from "./Game";
-import { IPlayer } from "./Player";
+import { IPlayer } from "./../../shared/models/Player";
 import { IHomePage } from "./HomePage";
 import { IPlayerPage } from "./PlayerPage";
 

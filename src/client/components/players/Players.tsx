@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Store } from "./../../Store";
-import { IPlayer } from "./../../types/player";
+import { IPlayer } from "./../../../shared/models/player";
 import PlayersGrid from "./../../containers/Players/PlayersGridContainer";
 import EditPlayer from "./../../containers/Players/EditPlayerContainer";
 import AddPlayer from "./../../containers/Players/AddPlayerContainer";

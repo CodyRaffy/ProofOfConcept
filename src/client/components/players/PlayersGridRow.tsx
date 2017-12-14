@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Store } from "./../../Store";
-import { IPlayer } from "./../../types/player";
+import { IPlayer } from "./../../../shared/models/player";
 import { Link } from 'react-router-dom'
 
 export interface IOwnProps {

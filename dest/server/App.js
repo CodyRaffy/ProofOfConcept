@@ -13,6 +13,11 @@ var App = /** @class */ (function () {
                 message: 'Hello World!'
             });
         });
+        router.get('/api/players', function (req, res) {
+            res.json({
+                message: 'Hello World!'
+            });
+        });
         this.express.use('/', router);
     };
     return App;
