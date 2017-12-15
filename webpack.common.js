@@ -11,7 +11,9 @@ function srcPath(subdir) {
 module.exports = {
   entry: './src/public/components/index.tsx',
   output: {
-    filename: "./dist/public/bundle.js"
+    path: __dirname + "/dist/public",
+    filename: "[name].bundle.js",
+    publicPath: "/"
   },
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
@@ -48,10 +50,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: "./dist/public/index.html",
       title: "Tic Tac Toe",
-      template: "./src/public/index.html",
-      publicPath: './dist/public'
+      template: "./src/public/index.html"
     }),
     new CleanWebpackPlugin(['dist'])
   ]

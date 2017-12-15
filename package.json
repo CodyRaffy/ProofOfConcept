@@ -58,7 +58,7 @@
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "build-server": "tsc --project ./src/tsconfig.json",
-    "run-server": "node ./dist/Index.js",
+    "run-server": "node ./dist/Server.js",
     "all": "npm run build && npm run build-server && npm run run-server"
   },
   "proxy": "http://localhost:3000",

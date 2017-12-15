@@ -4,27 +4,28 @@ const common = require('./webpack.common.js');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const extractSass = new ExtractTextPlugin({
-    filename: "./dist/public/[name].[contenthash].css",
-    disable: false
-  });
+  filename: "[name].[contenthash].css",
+  disable: false
+});
 
 module.exports = merge(common, {
   module: {
     rules: [
-        { test: /\.scss$/,
-            use: extractSass.extract({
-              use: [{
-                  loader: "css-loader"
-              }, {
-                  loader: "sass-loader"
-              }],
-              // use style-loader in development
-              fallback: "style-loader"
-            })
-          }
-        ],
-      },
-    plugins: [ 
-      extractSass, 
-      new UglifyJSPlugin() ]
+      {
+        test: /\.scss$/,
+        use: extractSass.extract({
+          use: [{
+            loader: "css-loader"
+          }, {
+            loader: "sass-loader"
+          }],
+          // use style-loader in development
+          fallback: "style-loader"
+        })
+      }
+    ],
+  },
+  plugins: [
+    extractSass,
+    new UglifyJSPlugin()]
 });
