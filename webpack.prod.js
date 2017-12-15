@@ -4,7 +4,7 @@ const common = require('./webpack.common.js');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const extractSass = new ExtractTextPlugin({
-    filename: "./dest/[name].[contenthash].css",
+    filename: "./dest/public/[name].[contenthash].css",
     disable: false
   });
 

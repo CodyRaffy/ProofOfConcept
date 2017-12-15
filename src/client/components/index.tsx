@@ -5,12 +5,12 @@ import { App } from "./app/App";
 import { BrowserRouter } from 'react-router-dom'
 
 import { Provider } from "react-redux";
-import { Store } from "./../Store"
+import { Store } from "./../Store";
 
 ReactDOM.render((
-    <BrowserRouter>
-      <Provider store={Store}>
+  <BrowserRouter>
+    <Provider store={Store}>
       <App />
-      </Provider>
-    </BrowserRouter>
-  ), document.getElementById('app') as HTMLElement)
+    </Provider>
+  </BrowserRouter>
+), document.getElementById('app') as HTMLElement)

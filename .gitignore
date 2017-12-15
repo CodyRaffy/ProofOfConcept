@@ -2,6 +2,5 @@
 .sass-cache/
 
 node_modules/
-dest/bundle.js
+dest/
 .vscode/settings.json
-dest/main.*.css
