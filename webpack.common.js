@@ -38,6 +38,14 @@ module.exports = {
       { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
       { test: /\.css$/, loader: "style-loader!css-loader" },
       {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "url-loader?limit=10000&mimetype=application/font-woff"
+      },
+      {
+        test: /\.(png|svg|jpg|gif|ttf|eot)$/,
+        use: ["file-loader"]
+      },
+      {
         test: /\.js?$/,
         loader: "babel-loader",
         exclude: /(node_modules|bower_components)/,
@@ -51,7 +59,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: "Tic Tac Toe",
-      template: "./src/public/index.html"
+      template: "./src/public/index-template.html"
     }),
     new CleanWebpackPlugin(['dist'])
   ]

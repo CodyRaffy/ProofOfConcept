@@ -8,6 +8,10 @@ const extractSass = new ExtractTextPlugin({
   disable: false
 });
 
+const uglify = new UglifyJSPlugin({
+  sourceMap: true
+});
+
 module.exports = merge(common, {
   module: {
     rules: [
@@ -25,7 +29,5 @@ module.exports = merge(common, {
       }
     ],
   },
-  plugins: [
-    extractSass,
-    new UglifyJSPlugin()]
+  plugins: [ extractSass, uglify]
 });
