@@ -1,1 +1,0 @@
-{"version":3,"file":"PlayersApi.js","sourceRoot":"","sources":["../../../src/server/api/PlayersApi.ts"],"names":[],"mappings":";;AAEa,QAAA,aAAa,GAAoB;IAC1C,MAAM,CAAC;QACH,EAAE,SAAS,EAAE,MAAM,EAAE,QAAQ,EAAE,OAAO,EAAE,EAAE,EAAE,YAAY,EAAE;QAC1D,EAAE,SAAS,EAAE,OAAO,EAAE,QAAQ,EAAE,OAAO,EAAE,EAAE,EAAE,YAAY,EAAE;KAC9D,CAAA;AACL,CAAC,CAAA"}

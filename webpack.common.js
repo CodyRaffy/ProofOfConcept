@@ -1,11 +1,32 @@
+const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+// This helper function is not strictly necessary.
+// I just don't like repeating the path.join a dozen times.
+function srcPath(subdir) {
+  return path.join(__dirname, "src", subdir);
+}
+
 module.exports = {
-  entry: './src/client/components/index.tsx',
+  entry: './src/public/components/index.tsx',
   output: {
-    filename: "./dest/public/bundle.js"
+    filename: "./dist/public/bundle.js"
   },
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: [".ts", ".tsx", ".js", ".json"]
+    extensions: [".ts", ".tsx", ".js", ".json"],
+    alias: {
+      actions: srcPath('public/actions'),
+      apis: srcPath('public/apis'),
+      components: srcPath('public/components'),
+      containers: srcPath('public/containers'),
+      reducers: srcPath('public/reducers'),
+      types: srcPath('public/types'),
+      shared: srcPath('shared'),
+      store: srcPath('public/Store'),
+      types: srcPath('public/types')
+    }
   },
   module: {
     rules: [
@@ -25,12 +46,13 @@ module.exports = {
       }
     ],
   },
-  // When importing a module whose path matches one of the following, just
-  // assume a corresponding global variable exists and use that instead.
-  // This is important because it allows us to avoid bundling all of our
-  // dependencies, which allows browsers to cache those libraries between builds.
-  externals: {
-    "react": "React",
-    "react-dom": "ReactDOM"
-  }
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: "./dist/public/index.html",
+      title: "Tic Tac Toe",
+      template: "./src/public/index.html",
+      publicPath: './dist/public'
+    }),
+    new CleanWebpackPlugin(['dist'])
+  ]
 };

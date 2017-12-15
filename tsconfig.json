@@ -1,11 +1,22 @@
 {
     "compilerOptions": {
-        "outDir": "./dest/",
+        "outDir": "./dist/",
         "sourceMap": true,
         "noImplicitAny": true,
         "module": "commonjs",
         "target": "es5",
-        "jsx": "react"
+        "jsx": "react",
+        "baseUrl": "src",
+        "paths": {
+            "actions/*": ["public/actions/*"],
+            "apis/*": ["public/apis/*"],
+            "components/*": ["public/components/*"],
+            "containers/*": ["public/containers/*"],
+            "reducers/*": ["public/reducers/*"],
+            "shared/*": ["shared/*"],
+            "store": ["public/Store"],
+            "types/*": ["public/types/*"]
+        }
     },
     "include": [
         "./src/client/**/*"
