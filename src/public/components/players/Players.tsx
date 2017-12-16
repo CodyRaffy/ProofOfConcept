@@ -34,11 +34,11 @@ export class Players extends React.Component<IOwnProps & IConnectedState & IConn
 
         return (
             <div>
-                <h2>Tic Tac Toe Players</h2>
+                <h2>Kagami Players</h2>
                 {!showAdd && (<button className="btn btn-primary" type="button" onClick={addPlayer}>Add Player</button>)}
                 {!showAdd && (<br/>)}
                 {showPlayerGrid && (<PlayersGrid></PlayersGrid>)}
-                {showEmptyPlayersGrid && (<span>Please add a Tic Tac Toe Player</span>)  }
+                {showEmptyPlayersGrid && (<span>Please add a Kagami Player</span>)  }
                 {showAdd && (<AddPlayer></AddPlayer>) }
             </div>
         );

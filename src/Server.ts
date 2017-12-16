@@ -1,3 +1,4 @@
+require('module-alias/register')
 import app from './App';
 import * as express from 'express';
 import * as playersApi from "./api/PlayersApi";

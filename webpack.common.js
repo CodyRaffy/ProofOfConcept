@@ -58,7 +58,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Tic Tac Toe",
+      title: "Kagami",
       template: "./src/public/index-template.html"
     }),
     new CleanWebpackPlugin(['dist'])

@@ -5,7 +5,11 @@
         "moduleResolution": "node",
         "noImplicitAny": true,
         "module": "commonjs",
-        "target": "es5"
+        "target": "es5",
+        "baseUrl": ".",
+        "paths": {
+            "shared/*": ["shared/*"],
+        }
     },
     "include": [
         "**/*"
